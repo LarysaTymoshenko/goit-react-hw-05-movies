@@ -1,0 +1,20 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #d3dee2;
+  font-size: 26px;
+}
+
+.activeLink {
+  color: #2196f3;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #4d5052;
+}
