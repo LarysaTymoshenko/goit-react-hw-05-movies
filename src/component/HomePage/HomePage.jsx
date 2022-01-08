@@ -3,6 +3,7 @@ import { fetchMovies } from "../../service/Api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Form from "../Form/Form";
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
@@ -17,6 +18,7 @@ export default function HomePage() {
   }, [page]);
   return (
     <>
+      <Form />
       {movies && (
         <InfiniteScroll
           dataLength={50}
