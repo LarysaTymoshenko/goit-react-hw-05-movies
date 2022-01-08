@@ -1,8 +1,9 @@
 import { Route, Switch } from "react-router-dom";
-import HomePage from "../../component/HomePage/HomePage";
-import MovieDetailsPage from "../../component/MovieDetailsPage/MovieDetailsPage";
-import MoviePage from "../../component/MoviesPage/MoviesPage";
-import Navigation from "../../views/Navigation/Navigation";
+import { ToastContainer } from "react-toastify";
+import HomePage from "../../views/HomePage/HomePage";
+import MovieDetailsPage from "../../views/MovieDetailsPage/MovieDetailsPage";
+import MoviesPage from "../../views/MoviesPage/MoviesPage";
+import Navigation from "../../component/Navigation/Navigation";
 import NotFoundView from "../../views/NotFoundView/NotFoundView";
 import "./App.css";
 
@@ -15,12 +16,13 @@ function App() {
           <HomePage />
         </Route>
         <Route path="/movies" exact>
-          <MoviePage />
+          <MoviesPage />
         </Route>
         <Route>
           <NotFoundView />
         </Route>
       </Switch>
+      <ToastContainer />
     </>
   );
 }

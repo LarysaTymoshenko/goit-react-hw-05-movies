@@ -1,8 +1,29 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { FiSearch } from "react-icons/fi";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import s from "./Form.module.css";
 
-const Form = ({ handleSubmit, searchName, handleNameChange }) => {
+const Form = ({ onSubmit }) => {
+  const [query, setQuery] = useState("");
+
+  const handleNameChange = (evt) => {
+    setQuery(evt.currentTarget.value.toLowerCase());
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    if (query.trim() === "") {
+      toast.warning("Enter sth");
+      return;
+    }
+
+    onSubmit(query);
+    setQuery("");
+  };
+
   return (
     <form className={s.searchForm} onSubmit={handleSubmit}>
       <input
@@ -11,7 +32,7 @@ const Form = ({ handleSubmit, searchName, handleNameChange }) => {
         name="query"
         autoComplete="off"
         placeholder="Search movies"
-        value={searchName}
+        value={query}
         onChange={handleNameChange}
       />
       <button type="submit" className={s.searchFormButton} aria-label="search">
@@ -20,9 +41,8 @@ const Form = ({ handleSubmit, searchName, handleNameChange }) => {
     </form>
   );
 };
+
 Form.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  searchName: PropTypes.string.isRequired,
-  handleNameChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 export default Form;

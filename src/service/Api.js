@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const getMovies = axios.create({
   baseURL: "https://api.themoviedb.org/3",
