@@ -8,38 +8,38 @@ const Movies = ({ movies }) => {
 
   return (
     <>
-      <ul className={s.GalleryList}>
-        {movies.map((movie) => (
-          <li className={s.GalleryListItem} key={movie.id}>
+      <ul className={s.galleryList}>
+        {movies.map(({ id, poster_path, title }) => (
+          <li className={s.galleryListItem} key={id}>
             <Link
               to={{
-                pathname: `/movies/${movie.id}`,
+                pathname: `/movies/${id}`,
                 state: { from: location },
               }}
               className={s.link}
             >
-              {movie.poster_path ? (
+              {poster_path ? (
                 <img
-                  className={s.GalleryListImg}
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
+                  className={s.galleryListImg}
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  alt={title}
                   loading="lazy"
                   width="274"
                   height="398"
                 />
               ) : (
                 <img
-                  className={s.GalleryListImg}
+                  className={s.galleryListImg}
                   src={img}
-                  alt={movie.title}
+                  alt={title}
                   loading="lazy"
                   width="274"
                   height="398"
                 />
               )}
 
-              <div className={s.GalleryListCard}>
-                <h3 className={s.GalleryListTitle}>{movie.title}</h3>
+              <div className={s.galleryListCard}>
+                <h3 className={s.galleryListTitle}>{title}</h3>
               </div>
             </Link>
           </li>

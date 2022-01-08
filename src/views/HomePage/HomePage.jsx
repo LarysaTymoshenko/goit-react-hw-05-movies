@@ -18,14 +18,16 @@ export default function HomePage() {
 
     asyncFetch();
   }, [page]);
+  // console.log(page);
+  const nextPage = () => setPage((page) => page + 1);
   return (
     <>
       {movies && (
         <InfiniteScroll
-          dataLength={50}
-          next={() => setPage(page + 1)}
+          dataLength={movies.total_results}
+          next={nextPage}
           hasMore={true}
-          style={{ overflow: "hidden" }}
+          style={{ textAlign: "center" }}
           loader={
             <Loader
               type="Puff"

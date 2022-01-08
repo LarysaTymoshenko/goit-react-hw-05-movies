@@ -1,11 +1,11 @@
-import { Route, Switch } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../../views/HomePage/HomePage";
-import MovieDetailsPage from "../../views/MovieDetailsPage/MovieDetailsPage";
+// import MovieDetailsPage from "../../views/MovieDetailsPage/MovieDetailsPage";
 import MoviesPage from "../../views/MoviesPage/MoviesPage";
 import Navigation from "../../component/Navigation/Navigation";
 import NotFoundView from "../../views/NotFoundView/NotFoundView";
-import "./App.css";
 
 function App() {
   return (
