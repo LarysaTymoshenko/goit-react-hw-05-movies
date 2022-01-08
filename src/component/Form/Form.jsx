@@ -16,7 +16,7 @@ const Form = ({ onSubmit }) => {
     evt.preventDefault();
 
     if (query.trim() === "") {
-      toast.warning("Enter sth");
+      toast.warning("Enter searcher");
       return;
     }
 

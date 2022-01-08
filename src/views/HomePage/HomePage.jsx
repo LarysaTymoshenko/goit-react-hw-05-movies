@@ -4,12 +4,11 @@ import { fetchMovies } from "../../service/Api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Movies from "../../component/Movies/Movies";
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
   const [page, setPage] = useState(1);
-
-  const location = useLocation();
 
   useEffect(() => {
     const asyncFetch = async () => {
@@ -36,20 +35,11 @@ export default function HomePage() {
               timeout={3000}
             />
           }
-        ></InfiniteScroll>
+        >
+          {""}
+          <Movies movies={movies.results} />
+        </InfiniteScroll>
       )}
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <Link
-              to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location },
-              }}
-            ></Link>
-          </li>
-        ))}
-      </ul>
     </>
   );
 }
