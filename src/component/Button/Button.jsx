@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./Button.module.css";
 
-const Button = ({ nextPage }) => {
+const Button = ({ onBackClick }) => {
   return (
     <div className={s.box_button}>
-      <button className={s.button} onClick={nextPage}>
+      <button className={s.button} onClick={onBackClick}>
         BACK
       </button>
     </div>
