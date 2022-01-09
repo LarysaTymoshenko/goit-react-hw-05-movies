@@ -40,7 +40,7 @@ export default function MoviesPage() {
 
   return (
     <>
-      <Form onSubmit={onFormSubmit} />;
+      <Form onSubmit={onFormSubmit} />
       {movies && (
         <InfiniteScroll
           dataLength={movies.total_results}

@@ -11,6 +11,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { fetchMovies } from "../../service/Api";
 import MovieDetail from "./MoviDetail/MovieDetail";
 import Button from "../../component/Button/Button";
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
