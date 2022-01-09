@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import img from "../../images/nofoto.jpg";
+import slug from "slugify";
 import s from "./Movies.module.css";
 
 const Movies = ({ movies }) => {
@@ -13,7 +14,7 @@ const Movies = ({ movies }) => {
           <li className={s.galleryListItem} key={id}>
             <Link
               to={{
-                pathname: `/movies/${id}`,
+                pathname: `/movies/${slug(`${title}-${id}`)}`,
                 state: { from: location },
               }}
               className={s.link}

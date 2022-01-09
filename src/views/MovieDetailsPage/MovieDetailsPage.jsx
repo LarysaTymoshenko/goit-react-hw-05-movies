@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import {
   useParams,
   Route,
@@ -11,14 +11,13 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { fetchMovies } from "../../service/Api";
 import MovieDetail from "./MoviDetail/MovieDetail";
 import Button from "../../component/Button/Button";
-import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
   const history = useHistory();
   const { path } = useRouteMatch();
   const { slug } = useParams();
-  const movieId = slug.match(/[a-z0-9]+$/gm)[0];
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
