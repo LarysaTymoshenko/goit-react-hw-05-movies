@@ -1,31 +1,42 @@
 import { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import HomePage from "../../views/HomePage/HomePage";
-import MovieDetailsPage from "../../views/MovieDetailsPage/MovieDetailsPage";
-import MoviesPage from "../../views/MoviesPage/MoviesPage";
-import Navigation from "../../component/Navigation/Navigation";
-import NotFoundView from "../../views/NotFoundView/NotFoundView";
+import Loader from "react-loader-spinner";
+
+const HomePage = lazy(() => import("../../views/HomePage/HomePage.jsx"));
+const MovieDetailsPage = lazy(() =>
+  import("../../views/MovieDetailsPage/MovieDetailsPage.jsx")
+);
+const Navigation = lazy(() =>
+  import("../../component/Navigation/Navigation.jsx")
+);
+const NotFoundView = lazy(() =>
+  import("../../views/NotFoundView/NotFoundView.jsx")
+);
+const MoviesPage = lazy(() => import("../../views/MoviesPage/MoviesPage.jsx"));
 
 function App() {
   return (
     <>
-      <Navigation />
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/movies" exact>
-          <MoviesPage />
-        </Route>
-        <Route path="/movies/:slug">
-          <MovieDetailsPage />
-        </Route>
-        <Route>
-          <NotFoundView />
-        </Route>
-      </Switch>
-      <ToastContainer />
+      {" "}
+      <Suspense fallback={<Loader />}>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/movies" exact>
+            <MoviesPage />
+          </Route>
+          <Route path="/movies/:slug">
+            <MovieDetailsPage />
+          </Route>
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+        <ToastContainer />
+      </Suspense>
     </>
   );
 }

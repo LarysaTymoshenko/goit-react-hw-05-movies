@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import {
   useParams,
   Route,
@@ -9,8 +9,11 @@ import {
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { fetchMovies } from "../../service/Api";
-import MovieDetail from "./MoviDetail/MovieDetail";
-import Button from "../../component/Button/Button";
+
+const Reviews = lazy(() => import("../../component/Reviews/Reviews.jsx"));
+const Cast = lazy(() => import("../../component/Cast/Cast.jsx"));
+const Button = lazy(() => import("../../component/Button/Button.jsx"));
+const MovieDetail = lazy(() => import("./MoviDetail/MovieDetail.jsx"));
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -40,13 +43,17 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <Button onBackClick={onBackClick} />
-
-      {movie && <MovieDetail movie={movie} />}
-
       <Suspense fallback={<Loader />}>
-        <Route path={`${path}/cast`}>{/* <CastPage /> */}</Route>
-        <Route path={`${path}/reviews`}>{/* <ReviewsPage /> */}</Route>
+        <Button onBackClick={onBackClick} />
+
+        {movie && <MovieDetail movie={movie} />}
+
+        <Route path={`${path}/cast`}>
+          <Cast />
+        </Route>
+        <Route path={`${path}/reviews`}>
+          <Reviews />
+        </Route>
       </Suspense>
     </>
   );
