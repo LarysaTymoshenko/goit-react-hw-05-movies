@@ -34,6 +34,7 @@ function App() {
           <Route>
             <NotFoundView />
           </Route>
+          <Redirect to="/" />
         </Switch>
         <ToastContainer />
       </Suspense>
