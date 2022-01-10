@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import { fetchMovies } from "../../service/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "react-loader-spinner";
@@ -18,7 +18,7 @@ export default function HomePage() {
 
     asyncFetch();
   }, [page]);
-  // console.log(page);
+
   const nextPage = () => setPage((page) => page + 1);
   return (
     <>

@@ -2,7 +2,6 @@ import { fetchMovies } from "../../service/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CastItem from "./CastItem/CastItem";
-// import s from './Cast.module.css';
 
 export default function Cast() {
   const { slug } = useParams();

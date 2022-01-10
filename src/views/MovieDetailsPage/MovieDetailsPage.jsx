@@ -49,9 +49,11 @@ const MovieDetailsPage = () => {
         {movie && <MovieDetail movie={movie} />}
 
         <Route path={`${path}/cast`}>
+          <Button onBackClick={onBackClick}></Button>
           <Cast />
         </Route>
         <Route path={`${path}/reviews`}>
+          <Button onBackClick={onBackClick}></Button>
           <Reviews />
         </Route>
       </Suspense>

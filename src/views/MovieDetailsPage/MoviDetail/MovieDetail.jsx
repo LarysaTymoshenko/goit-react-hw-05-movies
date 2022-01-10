@@ -27,8 +27,10 @@ export default function MovieDetails({ movie }) {
             <span className={s.year}>({movie.release_date.slice(0, 4)})</span>
           </h3>
           <p className={s.rating}>
-            USER SCORE:
-            <span className={s.result}>{movie.vote_average * 10}%</span>
+            VOTE / VOTES:
+            <span className={s.result}>
+              {movie.vote_average} / {movie.vote_count}
+            </span>
           </p>
           <ul className={s.genres}>
             GENRES:
