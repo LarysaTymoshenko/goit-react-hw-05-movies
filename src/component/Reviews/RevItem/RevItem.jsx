@@ -3,32 +3,25 @@ import s from "../Reviews.module.css";
 import img from "../../../images/nofoto.jpg";
 
 export default function RevItem({ reviews }) {
+  const {
+    id,
+    author,
+    author_details: { avatar_path },
+    content,
+  } = reviews;
+
   return (
     <>
-      {reviews.results.map(
-        ({
-          id,
-          author_details: { avatar_path, name },
-          content,
-          created_at,
-        }) => (
-          <li key={id} className={s.card}>
-            <div className={s.revBox}>
-              <h3 className={s.name}>{name}</h3>
-              <p className={s.char}>
-                {content}
-                <span>{created_at}</span>
-              </p>
-            </div>
-            <img
-              className={s.img}
-              src={avatar_path ? avatar_path.slice(1) : img}
-              alt={name}
-              loading="lazy"
-            />
-          </li>
-        )
-      )}
+      <li key={id} className={s.card}>
+        <img
+          className={s.img}
+          src={avatar_path ? avatar_path.slice(1) : img}
+          alt={author}
+          loading="lazy"
+        />
+        <h3 className={s.name}>{author}</h3>
+        <p className={s.char}>{content}</p>
+      </li>
     </>
   );
 }

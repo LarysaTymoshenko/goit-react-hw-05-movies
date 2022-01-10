@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovies } from "../../service/api";
 import RevItem from "./RevItem/RevItem";
+import s from "./Reviews.module.css";
 
 export default function Reviews() {
   const { slug } = useParams();
@@ -10,7 +11,7 @@ export default function Reviews() {
 
   useEffect(() => {
     const asyncFetch = async () => {
-      const reviews = await fetchMovies(`movie/${movieId}/review`);
+      const reviews = await fetchMovies(`movie/${movieId}/reviews`);
       setRevList(reviews);
     };
 
@@ -20,10 +21,19 @@ export default function Reviews() {
   return (
     <>
       {reviews && (
-        <ul>
-          <RevItem reviews={reviews} />
+        <ul className={s.cardList}>
+          {reviews.results.map((el) => (
+            <RevItem key={el.id} reviews={el} />
+          ))}
         </ul>
       )}
     </>
   );
 }
+// {reviews.results.map(
+// ({
+//   id, author,
+//   author_details: { avatar_path },
+//   content,
+//   created_at,
+// }) => (

@@ -1,0 +1,29 @@
+.cardList {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+}
+.card {
+  flex-wrap: wrap;
+  overflow-x: auto;
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #d9a6e9;
+  text-align: center;
+}
+.img {
+  max-width: 100%;
+  margin: 10px;
+}
+.char {
+  font-size: 10px;
+  font-weight: 500;
+}
+.name {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 10px;
+}
