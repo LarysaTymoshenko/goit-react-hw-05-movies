@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { fetchMovies } from "../../service/Api";
+import { fetchMovies } from "../../service/api";
 
 const Reviews = lazy(() => import("../../component/Reviews/Reviews.jsx"));
 const Cast = lazy(() => import("../../component/Cast/Cast.jsx"));

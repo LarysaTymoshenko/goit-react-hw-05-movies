@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Form from "../../component/Form/Form";
-import { fetchMovies } from "../../service/Api";
+import { fetchMovies } from "../../service/api";
 import Movies from "../../component/Movies/Movies";
 
 export default function MoviesPage() {

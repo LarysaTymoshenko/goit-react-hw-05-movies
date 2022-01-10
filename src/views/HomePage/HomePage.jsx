@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { fetchMovies } from "../../service/Api";
+import { fetchMovies } from "../../service/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";

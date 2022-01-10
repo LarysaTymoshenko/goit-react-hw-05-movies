@@ -1,4 +1,4 @@
-import { fetchMovies } from "../../service/Api";
+import { fetchMovies } from "../../service/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CastItem from "./CastItem/CastItem";
@@ -20,5 +20,3 @@ export default function Cast() {
 
   return <>{castList && <CastItem castList={castList} />}</>;
 }
-
-// export default Cast;

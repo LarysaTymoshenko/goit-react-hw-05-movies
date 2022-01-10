@@ -10,4 +10,19 @@
   width: 200px;
   margin-bottom: 5px;
   border-radius: 10px;
+  border: 1px solid #d9a6e9;
+  text-align: center;
+}
+.img {
+  max-width: 80%;
+}
+.char {
+  color: #d9a6e9;
+  margin-bottom: 10px;
+}
+.name {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
 }

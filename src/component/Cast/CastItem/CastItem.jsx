@@ -2,27 +2,33 @@ import PropTypes from "prop-types";
 import s from "../Cast.module.css";
 import img from "../../../images/nofoto.jpg";
 
-const CastItem = ({ data }) => {
+export default function Cast({ castList }) {
   return (
-    <>
-      <li className={s.card}>
-        {data.profile_path ? (
+    <ul className={s.cardList}>
+      {castList.cast.map(({ id, name, character, profile_path }) => (
+        <li key={id} className={s.card}>
+          <div className={s.nameBox}>
+            <h3 className={s.name}>{name}</h3>
+            <h4 className={s.char}>({character})</h4>
+          </div>
           <img
-            src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
-            alt={data.name}
-            width="200px"
-            height="250px"
+            className={s.img}
+            src={
+              profile_path
+                ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                : img
+            }
+            alt={name}
+            loading="lazy"
           />
-        ) : (
-          <img src={img} alt={data.name} width="200px" height="250px" />
-        )}
-        <h4 className={s.name}>{data.name}</h4>
-        <p className={s.character}>{data.character}</p>
-      </li>
-    </>
+        </li>
+      ))}
+    </ul>
   );
+}
+
+Cast.propTypes = {
+  castList: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }),
 };
-CastItem.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-export default CastItem;
