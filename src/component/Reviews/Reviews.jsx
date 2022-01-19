@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchMovies } from "../../service/api";
-import RevItem from "./RevItem/RevItem";
-import s from "./Reviews.module.css";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchMovies } from '../../service/api';
+import RevItem from './RevItem/RevItem';
+import s from './Reviews.module.css';
 
 export default function Reviews() {
   const { slug } = useParams();
@@ -22,7 +22,7 @@ export default function Reviews() {
     <>
       {reviews && (
         <ul className={s.cardList}>
-          {reviews.results.map((el) => (
+          {reviews.results.map(el => (
             <RevItem key={el.id} reviews={el} />
           ))}
         </ul>
@@ -30,10 +30,3 @@ export default function Reviews() {
     </>
   );
 }
-// {reviews.results.map(
-// ({
-//   id, author,
-//   author_details: { avatar_path },
-//   content,
-//   created_at,
-// }) => (

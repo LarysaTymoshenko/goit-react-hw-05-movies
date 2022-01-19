@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-// import { Link, useLocation } from "react-router-dom";
-import { fetchMovies } from "../../service/api";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Movies from "../../component/Movies/Movies";
+import { useEffect, useState } from 'react';
+import { fetchMovies } from '../../service/api';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Movies from '../../component/Movies/Movies';
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
@@ -19,7 +18,7 @@ export default function HomePage() {
     asyncFetch();
   }, [page]);
 
-  const nextPage = () => setPage((page) => page + 1);
+  const nextPage = () => setPage(page => page + 1);
   return (
     <>
       {movies && (
@@ -27,7 +26,7 @@ export default function HomePage() {
           dataLength={movies.total_results}
           next={nextPage}
           hasMore={true}
-          style={{ textAlign: "center" }}
+          style={{ textAlign: 'center' }}
           loader={
             <Loader
               type="Puff"
@@ -38,7 +37,7 @@ export default function HomePage() {
             />
           }
         >
-          {""}
+          {''}
           <Movies movies={movies.results} />
         </InfiniteScroll>
       )}

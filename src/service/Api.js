@@ -1,13 +1,12 @@
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const getMovies = axios.create({
-  baseURL: "https://api.themoviedb.org/3",
+  baseURL: 'https://api.themoviedb.org/3',
   timeout: 1000,
 
   params: {
-    api_key: "843d6905879c9b52f41f5f6a1e2c8966",
+    api_key: '843d6905879c9b52f41f5f6a1e2c8966',
   },
 });
 
